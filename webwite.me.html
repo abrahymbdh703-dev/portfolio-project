@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Portfolio</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#020617;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    .container{
+      width:90%;
+      max-width:1300px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:25px 0;
+    }
+
+    .logo{
+      font-size:32px;
+      font-weight:bold;
+      color:#38bdf8;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:25px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+      font-size:17px;
+    }
+
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:90vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      position:relative;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:350px;
+      height:350px;
+      background:#38bdf8;
+      filter:blur(180px);
+      opacity:0.2;
+      top:100px;
+    }
+
+    .hero h1{
+      font-size:90px;
+      margin-bottom:20px;
+      z-index:1;
+    }
+
+    .hero h1 span{
+      color:#38bdf8;
+    }
+
+    .hero p{
+      max-width:850px;
+      line-height:1.8;
+      font-size:24px;
+      color:#cbd5e1;
+      z-index:1;
+    }
+
+    .hero-buttons{
+      margin-top:35px;
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:center;
+      z-index:1;
+    }
+
+    .hero-buttons a{
+      text-decoration:none;
+      padding:15px 30px;
+      border-radius:14px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn1{
+      background:#38bdf8;
+      color:black;
+    }
+
+    .btn2{
+      border:2px solid #38bdf8;
+      color:#38bdf8;
+    }
+
+    .hero-buttons a:hover{
+      transform:translateY(-5px);
+    }
+
+    /* PROJECTS */
+
+    .projects{
+      padding:100px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:50px;
+      margin-bottom:60px;
+    }
+
+    .section-title span{
+      color:#38bdf8;
+    }
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:
+      repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:#0f172a;
+      border:1px solid #1e293b;
+      border-radius:25px;
+      padding:35px;
+      transition:0.4s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .project-card::before{
+      content:"";
+      position:absolute;
+      width:180px;
+      height:180px;
+      background:#38bdf8;
+      filter:blur(130px);
+      top:-60px;
+      right:-60px;
+      opacity:0.15;
+    }
+
+    .project-card:hover{
+      transform:translateY(-12px);
+      border-color:#38bdf8;
+    }
+
+    .project-card h3{
+      font-size:30px;
+      margin-bottom:18px;
+      position:relative;
+      z-index:1;
+    }
+
+    .project-card p{
+      color:#94a3b8;
+      line-height:1.7;
+      margin-bottom:25px;
+      position:relative;
+      z-index:1;
+    }
+
+    .project-card a{
+      display:inline-block;
+      text-decoration:none;
+      background:#38bdf8;
+      color:black;
+      padding:13px 24px;
+      border-radius:12px;
+      font-weight:bold;
+      transition:0.3s;
+      position:relative;
+      z-index:1;
+    }
+
+    .project-card a:hover{
+      transform:scale(1.05);
+    }
+
+    /* CONTACT */
+
+    .contact{
+      padding-bottom:120px;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:
+      repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+    }
+
+    .contact-card{
+      background:#0f172a;
+      border:1px solid #1e293b;
+      padding:35px;
+      border-radius:24px;
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .contact-card:hover{
+      transform:translateY(-10px);
+      border-color:#38bdf8;
+    }
+
+    .contact-card h3{
+      color:#38bdf8;
+      margin-bottom:15px;
+      font-size:30px;
+    }
+
+    .contact-card p{
+      color:#e2e8f0;
+      font-size:19px;
+    }
+
+    .empty{
+      text-align:center;
+      color:#94a3b8;
+      font-size:22px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      .navbar{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      .hero h1{
+        font-size:55px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .section-title{
+        font-size:38px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+      <div class="logo">
+        Portfolio
+      </div>
+
+      <div class="nav-links">
+
+        <a href="#">
+          Home
+        </a>
+
+        <a href="#projects">
+          Projects
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+      </div>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <h1>
+        Abd <span>Elftah</span>
+      </h1>
+
+      <p>
+        Front-End Developer passionate about
+        building responsive and high-quality
+        web applications using JavaScript,
+        React, and Tailwind CSS with modern
+        and user-friendly designs.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          href="#projects"
+          class="btn1"
+        >
+          My Projects
+        </a>
+
+        <a
+          href="#contact"
+          class="btn2"
+        >
+          Contact Me
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section
+      class="projects"
+      id="projects"
+    >
+
+      <h2 class="section-title">
+        My <span>Projects</span>
+      </h2>
+
+      <div
+        class="projects-grid"
+        id="projectsGrid"
+      >
+
+        <p class="empty">
+          Loading Projects...
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section
+      class="contact"
+      id="contact"
+    >
+
+      <h2 class="section-title">
+        Contact <span>Me</span>
+      </h2>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+
+          <h3>Name</h3>
+
+          <p>
+            Abd Elftah Ebrahem
+          </p>
+
+        </div>
+
+        <div class="contact-card">
+
+          <h3>Phone</h3>
+
+          <p>
+            +201500079896
+          </p>
+
+        </div>
+
+        
+
+    </section>
+
+  </div>
+
+  <script>
+
+    // =====================
+    // SUPABASE
+    // =====================
+
+    const SUPABASE_URL =
+      "https://dmupkbgouxpheomsuqbt.supabase.co/rest/v1/projects";
+
+    const SUPABASE_KEY =
+      "sb_publishable_uvsVecJwHTatrqubzM7ZMA_GzF1AzBb";
+
+    const projectsGrid =
+      document.getElementById(
+        "projectsGrid"
+      );
+
+    // =====================
+    // FETCH PROJECTS
+    // =====================
+
+    async function fetchProjects(){
+
+      try{
+
+        const response = await fetch(
+
+          SUPABASE_URL,
+
+          {
+            headers:{
+
+              apikey: SUPABASE_KEY,
+
+              Authorization:
+              "Bearer " + SUPABASE_KEY
+
+            }
+          }
+
+        );
+
+        const projects =
+          await response.json();
+
+        projectsGrid.innerHTML = "";
+
+        // لو مفيش مشاريع
+
+        if(projects.length === 0){
+
+          projectsGrid.innerHTML = `
+
+            <p class="empty">
+              No Projects Found
+            </p>
+
+          `;
+
+          return;
+        }
+
+        // عرض المشاريع
+
+        projects.forEach((project)=>{
+
+          projectsGrid.innerHTML += `
+
+            <div class="project-card">
+
+              <h3>
+                ${project.name}
+              </h3>
+
+              <p>
+                Responsive and modern web
+                application with clean UI
+                and smooth user experience.
+              </p>
+
+              <a
+                href="${
+                  project.link.startsWith("http")
+                  ? project.link
+                  : "https://" + project.link
+                }"
+                target="_blank"
+              >
+                View Project
+              </a>
+
+            </div>
+
+          `;
+
+        });
+
+      }
+
+      catch(error){
+
+        projectsGrid.innerHTML = `
+
+          <p class="empty">
+            Error Loading Projects
+          </p>
+
+        `;
+
+        console.log(error);
+
+      }
+
+    }
+
+    fetchProjects();
+
+  </script>
+
+</body>
+</html>
